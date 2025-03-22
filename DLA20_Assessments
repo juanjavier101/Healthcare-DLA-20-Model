@@ -1,0 +1,17 @@
+-- DLA-20 Assessments
+CREATE TABLE Assessments (
+    Assessment_ID INT PRIMARY KEY AUTO_INCREMENT,
+    Patient_ID INT,
+    Assessment_Date DATE NOT NULL,
+    Total_Score INT,
+    Clinician_Notes TEXT
+);
+
+-- Modified DLA-20 Responses Table
+CREATE TABLE DLA20_Responses (
+    Response_ID INT PRIMARY KEY AUTO_INCREMENT,
+    Assessment_ID INT,
+    Question_Number VARCHAR(3),
+    Question_Text VARCHAR(255), -- Added Question Text
+    Answer INT CHECK (Answer BETWEEN 0 AND 3)
+);
